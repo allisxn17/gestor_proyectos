@@ -80,3 +80,24 @@ no_existe = gestor.buscar_proyecto("OtroProyecto")
 print(no_existe)   # None
 
 print(len(gestor.listar_proyectos()))  # 2
+
+
+if __name__ == "__main__":
+    ana   = Colaborador(username="ana_dev", email="ana@mail.com")
+    luis  = Colaborador(username="luis99",  email="luis@mail.com")
+    sofia = Colaborador(username="sofiaml", email="sofia@mail.com")
+
+    p1 = Proyecto(nombre="InventarioApp", lenguaje="Python")
+    p1.agregar_colaborador(ana)
+    p1.agregar_colaborador(luis)
+    p1.agregar_colaborador(ana)
+
+    p2 = Proyecto(nombre="WebStore", lenguaje="JavaScript")
+    p2.agregar_colaborador(sofia)
+
+    gestor = GestorProyectos()
+    gestor.registrar_proyecto(p1)
+    gestor.registrar_proyecto(p2)
+
+    for proyecto in gestor.listar_proyectos():
+        print(proyecto)
