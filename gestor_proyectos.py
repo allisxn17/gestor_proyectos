@@ -23,6 +23,12 @@ class Proyecto:
                 return True
         return False
 
+    def eliminar_colaborador(self, username: str) -> None:
+        original = len(self._colaboradores)
+        self._colaboradores = [c for c in self._colaboradores if c.username != username]
+        if len(self._colaboradores) == original:
+            print(f"Aviso: no se encontró el colaborador '{username}'.")
+
     def __str__(self):
         return f"proyecto: {self.nombre} [{self.lenguaje}] - {len(self.colaboradores)}"
 
